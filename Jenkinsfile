@@ -28,12 +28,12 @@ pipeline {
                 sh "cd trans-vue"
                 sh "npm install"
                 sh "npm run build"
-                sh "docker build . -t ${params.model_name}"
+                sh "docker build -t ${params.model_name}:${params.tag_name} ."
             }
         }
         stage('3.推送镜像') {
             steps {
-                echo "push images "
+                echo "push images ${params.model_name}:${params.tag_name}"
                 sh "docker login -u ${HARBOR_CREDS_USR} -p ${HARBOR_CREDS_PSW} 192.168.10.30:5566"
                 sh "docker push ${params.registry_ns}/${params.model_name}:${params.tag_name}"
                 echo "push success! "
