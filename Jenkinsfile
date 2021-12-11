@@ -29,6 +29,7 @@ pipeline {
                 sh "npm install"
                 sh "npm run build"
                 sh "docker build -t ${params.model_name}:${params.tag_name} ."
+                // sh "docker run -d -p 8081:80 --name trans-vue ${params.model_name}:${params.tag_name}"
             }
         }
         stage('3.推送镜像') {
