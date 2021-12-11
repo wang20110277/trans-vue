@@ -10,6 +10,8 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    // 允许编译javascript文件
+    "allowJs": true,
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
@@ -29,11 +31,10 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "src/*",
+    "src/**/*",
+    "tests/*",
+    "tests/**/*"
   ],
   "exclude": [
     "node_modules"
